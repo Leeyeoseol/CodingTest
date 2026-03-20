@@ -36,20 +36,3 @@ class Solution {
         return answer;
     }
 }
-
-/*
-if(poly[i].contains("x")) {
-    // 1. x 제거
-    String num = poly[i].replace("x", "");
-
-    // 2. 계수 처리
-    if(num.equals("")) {
-        xSum += 1;
-    } else {
-        xSum += Integer.parseInt(num);
-    }
-} else {
-    // 숫자니까 그냥 더하기
-    numSum += Integer.parseInt(poly[i]);
-}
-*/
