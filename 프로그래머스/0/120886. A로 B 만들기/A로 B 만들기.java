@@ -1,36 +1,18 @@
-import java.util.*;
 class Solution {
     public int solution(String before, String after) {
-        int answer = 0;
+        int []count=new int[26];//개수 확인 용 a(97) ~ z(122)
+    
+        for(char c:before.toCharArray()){
+            count[c-'a']++;
+        }
 
-        int []str1=new int[before.length()];
-        int []str2=new int[after.length()];
-        
-        if(before.length()!=after.length()) return 0;
-        for(int i=0;i<before.length();i++){
-            str1[i]=before.charAt(i);
+        for(char c:after.toCharArray()){
+            count[c-'a']--;
         }
-        Arrays.sort(str1);//정렬
-                
-        for(int i=0;i<after.length();i++){
-            str2[i]=after.charAt(i);
+        for(int n:count){
+            if(n!= 0) return 0;
         }
-        Arrays.sort(str2);//정렬
-        
-        boolean a=false;
-        for(int i=0;i<before.length();i++){
-            if(str1[i]==str2[i]){//true
-                a=true;
-            }else{
-                a=false;
-                break;
-            }
-        }
-        
-        if(a==true){
-            return 1;
-        }else{
-            return 0;
-        }
+        return 1;
     }
 }
+//Before, After 각각의 a의 개수, b의 개수 ... z의 개수를 세서 비교하면 O(N)으로 처리 가능하겠네요!
